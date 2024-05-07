@@ -1,0 +1,48 @@
+.createdByBar{
+ display: flex;
+ align-self: flex-end;
+ align-items: center;
+ background-color: #D1D1D1;
+ padding: 0px toRem(10) 0px toRem(20);
+ min-height: toRem(29);
+ border-radius: toRem(8);
+ gap: toRem(18);
+ margin-top: toRem(13);
+}
+.createdByBar__text{
+  font-family: 'Inter';
+  font-size: toRem(12);
+  color: #454545;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.createdByBar__creatorContainer{
+  padding: 0px toRem(6) 0px toRem(6);
+  display: flex;
+  align-items: center;
+  gap: toRem(3);
+  background-color: #C1C1C1 ;
+  border-radius: toRem(3);
+}
+
+.createdByBar__creatorContainer:hover{
+  background-color: #b5b5b5;
+}
+
+.createdByBar__creatorName{
+  font-size: toRem(12);
+  font-weight: 500;
+  text-decoration: none;
+  font-family: 'Inter';
+  color: #303030;
+}
+
+.createdByBar__image{
+  background-image: url('@svgs/githubIcon.svg');
+  min-width: toRem(19);
+  min-height: toRem(19);
+}

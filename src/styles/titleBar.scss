@@ -1,0 +1,94 @@
+.titleBar{
+  max-width: toRem(695);
+  height: toRem(75);
+  background-image: linear-gradient(
+    180deg,
+    rgba(238, 214, 249, 1) 0%,
+    rgba(214, 228, 249, 1) 100%
+  ); 
+  border-radius: toRem(21);
+  margin-top: toRem(9);
+  padding: 0px toRem(39) 0px toRem(36);
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.234);
+  display: flex;
+  align-items: center;
+}
+
+.titleBar__titleText{
+  min-height: 100%;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: toRem(40);
+  display: flex;
+  align-items: center;
+  margin-right: toRem(100);
+}
+
+.autofillButton {
+  padding: toRem(5) toRem(14) toRem(6) toRem(12);
+  border-radius: toRem(12);
+  border: none;
+  margin-right: toRem(25);
+  background-image: linear-gradient(
+    135deg,
+    rgba(162, 64, 197, 1) 0%,
+    rgba(66, 141, 184, 1) 100%
+  );
+  font-size: toRem(18);
+  font-weight: 600;
+  font-family: 'Inter';
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.autofillButton__image{
+  background-image: url('@svgs/autofillImage.svg');
+  min-height: toRem(24);
+  min-width: toRem(24);
+
+}
+
+.autofillButton__text{
+  font-size: toRem(16);
+  color:#ffffff;
+  font-family: 'Inter';
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+
+.saveButton {
+  padding: toRem(6) toRem(12) toRem(5) toRem(14);
+  border-radius: toRem(12);
+  border: none;
+  background-image: linear-gradient(
+    135deg,
+    rgba(162, 64, 197, 1) 0%,
+    rgba(66, 141, 184, 1) 100%
+  );
+  font-size: toRem(20);
+  font-weight: 600;
+  font-family: 'Inter';
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: toRem(11);
+}
+
+.saveButton__image{
+  background-image: url('@svgs/saveImage.svg');
+  min-width: toRem(20);
+  min-height: toRem(20);
+}
+
+.autofillButton:hover,
+.saveButton:hover {
+  background-image: linear-gradient(
+    135deg,
+    rgb(131, 48, 161) 0%,
+    rgb(49, 109, 146) 100%
+  );
+}
