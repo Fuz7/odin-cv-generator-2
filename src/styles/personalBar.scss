@@ -1,0 +1,11 @@
+.formBar{
+  @include formBar;
+  margin-top: toRem(40);
+  margin-bottom: toRem(27);
+  padding: toRem(13) toRem(23) toRem(14) toRem(20)
+} 
+
+.formBar__title--personalBar{
+  @include formBar__title;
+  margin-left: toRem(27);
+}

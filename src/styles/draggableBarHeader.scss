@@ -1,0 +1,31 @@
+.formBar--draggable{
+  @include formBar;
+  gap: toRem(15)
+} 
+
+
+.draggableImage{
+  margin-right: toRem(27);
+  user-select: none;
+}
+
+.formBar__icon{
+  margin-right: toRem(15);
+  user-select: none
+}
+
+.formBar__title{
+ @include formBar__title;
+ 
+}
+
+.formBar__dropdownArrow,
+.formBar__dropdownArrow--active{
+  user-select: none;
+  margin-left: auto ;
+  transition: transform 0.2s ease;
+}
+
+.formBar__dropdownArrow--active{
+  transform: rotate(180deg);
+}
