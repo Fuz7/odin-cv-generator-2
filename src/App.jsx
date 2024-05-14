@@ -1,17 +1,22 @@
 import TitleBar from "./components/TitleBar";
 import CreatedByBar from "./components/CreatedByBar";
 import PersonalBar from "./components/PersonalBar";
-import DraggableBarHeader from "./components/DraggableBarHeader";
-import workImageSource from '@svgs/workImage.svg'
+import WorkExperienceBar from "./components/WorkExperienceBar";
+import EducationalExperienceBar from "./components/EducationalExperienceBar";
+import ProjectsBar from "./components/ProjectsBar";
+function App() 
 
 
-function App() {
+
+{
   return <>
   <div className="formContainer">
     <TitleBar></TitleBar>
     <CreatedByBar></CreatedByBar>
     <PersonalBar></PersonalBar>
-    <DraggableBarHeader imgSource={workImageSource} title="Work Experience" ></DraggableBarHeader>
+    <WorkExperienceBar></WorkExperienceBar>
+    <EducationalExperienceBar></EducationalExperienceBar>
+    <ProjectsBar></ProjectsBar>
   </div>
   <div className="outputContainer"></div>
   </>

@@ -1,6 +1,6 @@
 .formBar--draggable{
   @include formBar;
-  gap: toRem(15)
+  margin-bottom: toRem(12); 
 } 
 
 
