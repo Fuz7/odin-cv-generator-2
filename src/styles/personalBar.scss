@@ -1,11 +1,52 @@
 .formBar{
   @include formBar;
+  display: flex;
+  flex-direction: column;
   margin-top: toRem(40);
-  margin-bottom: toRem(35);
-  padding: toRem(13) toRem(23) toRem(14) toRem(20)
+  margin-bottom: toRem(27);
 } 
 
 .formBar__title--personalBar{
   @include formBar__title;
   margin-left: toRem(27);
+}
+
+.formbar__iconContainer{
+  @include formBar__iconContainer;
+}
+
+.formBar__columnContainer,
+.formBar__columnContainer--active{
+  max-height: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formBar__columnContainer--active{
+  max-height: toRem(3000);
+}
+
+.columnContainer__separator,
+.columnContainer__separator--active{
+  @include separator;
+  margin-top: toRem(4);
+  margin-bottom: toRem(16);
+  visibility: hidden;
+}
+
+.columnContainer__separator--active{
+  visibility: visible;
+}
+
+.formBar__inputContainer{
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(toRem(10), 10%, toRem(52));
+  margin-top: toRem(19);
+  padding-left: toRem(20);
+  padding-right: toRem(24);
+  padding-bottom: toRem(20);
+  font-family: 'Inter';
 }

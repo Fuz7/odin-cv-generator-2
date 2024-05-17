@@ -3,6 +3,9 @@
   margin-bottom: toRem(12); 
 } 
 
+.formbar--draggable__iconContainer{
+  @include formBar__iconContainer
+}
 
 .draggableImage{
   margin-right: toRem(27);

@@ -12,10 +12,13 @@ function DraggableBarHeader({imgSource,title}){
 
   return<>
     <div onClick={toggleClick} className="formBar--draggable">
+      <div className='formbar--draggable__iconContainer'>
       <img src={draggableImageSrc} alt="DraggableIcon" className='draggableImage' />
       <img src={imgSource} alt="Icon" className='formBar__icon' />
       <p className="formBar__title">{title}</p>
       <img src={dropdownIconSrc} className={isClicked?'formBar__dropdownArrow--active':'formBar__dropdownArrow'} alt="dropdownArrowIcon"  />
+
+      </div>
     </div>
   </>
 }
