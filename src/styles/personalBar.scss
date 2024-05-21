@@ -18,13 +18,14 @@
 .formBar__columnContainer,
 .formBar__columnContainer--active{
   max-height: 0px;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }
 
 .formBar__columnContainer--active{
   max-height: toRem(3000);
+  display: flex;
 }
 
 .columnContainer__separator,
@@ -33,20 +34,23 @@
   margin-top: toRem(4);
   margin-bottom: toRem(16);
   visibility: hidden;
+  display: none;
 }
 
 .columnContainer__separator--active{
   visibility: visible;
+  display: flex;
 }
 
 .formBar__inputContainer{
   min-width: 100%;
+  max-width: toRem(685);
   display: flex;
   flex-wrap: wrap;
   gap: clamp(toRem(10), 10%, toRem(52));
   margin-top: toRem(19);
   padding-left: toRem(20);
-  padding-right: toRem(24);
+  padding-right: toRem(16);
   padding-bottom: toRem(20);
   font-family: 'Inter';
 }
