@@ -5,7 +5,7 @@ function FormType({ type, data,title, state, setState }) {
     const modifiedState = state.map((item) =>
       item.title === title?{...item, data:changedData} : item
     )
- 
+    console.log(modifiedState)
     setState(modifiedState)
   }
 

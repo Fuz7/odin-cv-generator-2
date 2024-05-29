@@ -1,23 +1,15 @@
+/* eslint-disable react/prop-types */
 import personalImageSrc from '@svgs/personalImage.svg';
 import dropdownIconSrc from '@svgs/arrowImage.svg';
 import { useState } from 'react';
 import FormType from './FormType';
-function PersonalBar() {
+function PersonalBar({formState,setState}) {
   const [isClicked, setIsClicked] = useState(false);
 
   const toggleClick = () => {
     setIsClicked(!isClicked);
   };
 
-  const [personalData, setPersonalData] = useState([
-    { type: 'textField', title: 'Full Name', data: '' },
-    {type:'textField',title:'Job Title',data:''},
-    {type:'textField', title:'Email',data:''},
-    {type:'textField', title:'Address', data:''},
-    {type:'textField', title:'Phone Number',data:''},
-    {type:'textField',title:'Website',data:''},
-    {type:'textArea',title:'Summary',data:''}
-  ]);
 
   return (
     <>
@@ -50,8 +42,8 @@ function PersonalBar() {
             }
           ></div>
           <div className="formBar__inputContainer">
-          {personalData.map((data,index)=>{
-            return <FormType key={index} type={data.type} title={data.title} data={data.data}  state={personalData} setState={setPersonalData}></FormType>
+          {formState.map((data,index)=>{
+            return <FormType key={index} type={data.type} title={data.title} data={data.data}  state={formState} setState={setState}></FormType>
           })}
           </div>
         </div>
