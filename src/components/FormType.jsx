@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 function FormType({ type, data,title, state, setState }) {
-
+  
   const setDataChange = (changedData) =>{
     const modifiedState = state.map((item) =>
       item.title === title?{...item, data:changedData} : item

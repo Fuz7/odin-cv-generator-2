@@ -1,0 +1,26 @@
+.formBar__barListContainer,
+.formBar__barListContainer--active{
+  max-height: 0px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formBar__barListContainer--active{
+  max-height: toRem(3000);
+  display: flex;
+}
+
+.barListContainer__separator,
+.barListContainer__separator--active{
+  @include separator;
+  margin-top: toRem(4);
+  margin-bottom: toRem(16);
+  visibility: hidden;
+  display: none;
+}
+
+.barListContainer__separator--active{
+  visibility: visible;
+  display: flex;
+}
