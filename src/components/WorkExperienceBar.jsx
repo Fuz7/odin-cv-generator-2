@@ -9,7 +9,7 @@ function WorkExperienceBar() {
         title="Professional Experience  "
       >
 
-      <BarList></BarList>
+      <BarList buttonName='+ Experience'></BarList>
       </DraggableBarHeader>
     </>
   );

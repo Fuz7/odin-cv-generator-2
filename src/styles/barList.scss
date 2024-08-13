@@ -15,7 +15,7 @@
 .barListContainer__separator--active{
   @include separator;
   margin-top: toRem(4);
-  margin-bottom: toRem(16);
+  margin-bottom: toRem(11);
   visibility: hidden;
   display: none;
 }
@@ -23,4 +23,57 @@
 .barListContainer__separator--active{
   visibility: visible;
   display: flex;
+}
+
+.barListContainer__addButton{
+  position: relative;
+  border-radius: toRem(18);
+  background-color: white;
+  border-color: #262626;
+  font-family: 'Inter';
+  font-size: toRem(15);
+  padding: toRem(8) toRem(21) toRem(8);
+  font-weight: 700;
+  border-style: solid;
+  margin-bottom: toRem(20);
+  cursor: pointer;
+}
+
+.barListContainer__addButton:hover{
+  background-color: rgb(247, 247, 247);
+}
+
+.barList{
+  border: solid 1px black;
+  border-radius: toRem(7);
+  min-width: 94%;
+  min-height: toRem(36);
+  margin-bottom: toRem(11);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: toRem(11);
+  padding-right: toRem(11);
+  background-color: #F4F4F4;
+  cursor: pointer;
+}
+
+
+.barList__title{
+  font-family: 'Inter';
+  font-size: toRem(20);
+  font-weight: 600;
+}
+
+.barList__button{
+  min-width: toRem(24);
+  min-height: toRem(24);
+  border: none;
+  background-image: url('@svgs/deleteImage.svg');
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.barList__button:hover{
+  transform: scale(1.1);
 }
