@@ -27,10 +27,14 @@ function App() {
             title: 'Job Title',
             data: '',
           },
-          {type:'textField',title:'Start Date',data:''},{
-            type:'textField',title:'Address',data:''
+          { type: 'textField', title: 'Start Date', data: '' },
+          {
+            type: 'textField',
+            title: 'Address',
+            data: '',
           },
         ],
+        
       ],
     },
     { barName: 'educationalExperienceBar', list: [] },
@@ -39,8 +43,7 @@ function App() {
       list: [],
     },
   ]);
-
-  return (
+  return (  
     <>
       <div className="formContainer">
         <TitleBar></TitleBar>
@@ -49,9 +52,29 @@ function App() {
           formState={personalData}
           setState={setPersonalData}
         ></PersonalBar>
-        <WorkExperienceBar></WorkExperienceBar>
-        <EducationalExperienceBar></EducationalExperienceBar>
-        <ProjectsBar></ProjectsBar>
+        {draggableData.map((bar) => {
+          if (bar.barName === 'workExperienceBar') {
+            return (
+              <WorkExperienceBar
+              debugger
+                data={draggableData}
+                setData={setDraggableData}
+                barName={bar.barName}
+                key={bar.barName}
+              ></WorkExperienceBar>
+            );
+          } else if (bar.barName === 'educationalExperienceBar') {
+            return (
+              <EducationalExperienceBar
+                key={bar.barName}
+              ></EducationalExperienceBar>
+            );
+          } else if (bar.barName === 'projectsBar') {
+            return <ProjectsBar key={bar.barName}></ProjectsBar>;
+          }
+            return null
+        })}
+        
       </div>
       <div className="outputContainer"></div>
     </>

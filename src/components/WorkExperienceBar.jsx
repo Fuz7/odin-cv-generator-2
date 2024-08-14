@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import workExperienceImageSource from '@svgs/workImage.svg';
 import DraggableBarHeader from './DraggableBarHeader';
 import BarList from './BarList';
-function WorkExperienceBar() {
+function WorkExperienceBar({barName,data,setData}) {
+  console.log(data)
   return (
     <>
       <DraggableBarHeader
@@ -9,7 +11,7 @@ function WorkExperienceBar() {
         title="Professional Experience  "
       >
 
-      <BarList buttonName='+ Experience'></BarList>
+      <BarList barName={barName} data={data} setData={setData} buttonName='+ Experience'></BarList>
       </DraggableBarHeader>
     </>
   );
