@@ -5,6 +5,9 @@ import WorkExperienceBar from './components/WorkExperienceBar';
 import EducationalExperienceBar from './components/EducationalExperienceBar';
 import ProjectsBar from './components/ProjectsBar';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+
 function App() {
   const [personalData, setPersonalData] = useState([
     { type: 'textField', title: 'Full Name', data: '' },
@@ -21,7 +24,7 @@ function App() {
       barName: 'workExperienceBar',
       list: [
         [
-          { type: 'textField', title: 'Company Name', data: '' },
+          { id:uuidv4(), type: 'textField', title: 'Company Name', data: 'University Of' },
           {
             type: 'textField',
             title: 'Job Title',

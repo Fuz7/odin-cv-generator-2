@@ -20,14 +20,13 @@ function BarList({ active,buttonName,barName,data,setData }) {
         {data.map((bar) =>{
           if(bar.barName === barName && bar.list.length > 0){
             return bar.list.map((item) =>{
-              return (<div className="nig " key={barName + 'sa'}>das</div>)
+              return (<div className="barList" key={barName + 'barList'+item[0].id}>
+                <p className="barList__title" key={barName +'barList__title' +item[0].id}>{item[0].data}</p>
+                <button onClick={stopEventPropagation} className="barList__button "key={barName+"barList__button"+item[0].id}></button>
+              </div>)
             })
           }
         })}
-        <div className="barList">
-          <p className="barList__title">University Of Mindanao</p>
-          <button onClick={stopEventPropagation} className='barList__button'></button>
-        </div>
         {data.map((bar) => {
           if(bar.barName === barName && bar.list.length > 0){
             return <div key={bar.barName + "separator"} className="barListContainer__separator--active"></div>
