@@ -9,7 +9,12 @@ function EducationalExperienceBar({ barName, data, setData }) {
       imgSource={educationalExperienceSource}
       title="Educational   Experience  "
     >
-    <BarList barName={barName} data={data} setData={setData} buttonName='+ Education'></BarList> 
+      <BarList
+        barName={barName}
+        data={data}
+        setData={setData}
+        buttonName="+ Education"
+      ></BarList>
     </DraggableBarHeader>
   );
 }
