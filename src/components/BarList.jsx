@@ -4,12 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import BarData from './BarData';
 
 function BarList({ active, buttonName, barName, data, setData }) {
-  const [dataIndex, setDataIndex] = useState(1);
-
+  const [dataIndex, setDataIndex] = useState(0);
+  const [savedData,setSavedData] = useState(null)
   function renderBarList() {
     return (
       <>
         <div
+        
           className={
             active
               ? 'formBar__barListContainer--active'
@@ -70,7 +71,7 @@ function BarList({ active, buttonName, barName, data, setData }) {
   }
   return (
     <>
-      {dataIndex ? (
+      { dataIndex !== null ? (
         <BarData
           active={active}
           barName={barName}
