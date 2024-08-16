@@ -1,9 +1,16 @@
+/* eslint-disable react/prop-types */
 import educationalExperienceSource from '@svgs/educationImage.svg';
 import DraggableBarHeader from './DraggableBarHeader';
-function EducationalExperienceBar() {
+import BarList from './BarList';
 
+function EducationalExperienceBar({ barName, data, setData }) {
   return (
-    <DraggableBarHeader imgSource={educationalExperienceSource} title="Educational   Experience  " ></DraggableBarHeader>
+    <DraggableBarHeader
+      imgSource={educationalExperienceSource}
+      title="Educational   Experience  "
+    >
+    <BarList barName={barName} data={data} setData={setData} buttonName='+ Education'></BarList> 
+    </DraggableBarHeader>
   );
 }
 

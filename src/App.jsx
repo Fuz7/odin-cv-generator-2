@@ -7,7 +7,6 @@ import ProjectsBar from './components/ProjectsBar';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-
 function App() {
   const [personalData, setPersonalData] = useState([
     { type: 'textField', title: 'Full Name', data: '' },
@@ -24,7 +23,12 @@ function App() {
       barName: 'workExperienceBar',
       list: [
         [
-          { id:uuidv4(), type: 'textField', title: 'Company Name', data: 'University Of' },
+          {
+            id: uuidv4(),
+            type: 'textField',
+            title: 'Company Name',
+            data: 'University Of',
+          },
           {
             type: 'textField',
             title: 'Job Title',
@@ -37,16 +41,58 @@ function App() {
             data: '',
           },
         ],
-        
       ],
     },
-    { barName: 'educationalExperienceBar', list: [] },
+    {
+      barName: 'educationalExperienceBar',
+      list: [
+        [
+          {
+            id: uuidv4(),
+            type: 'textField',
+            title: 'School Name',
+            data: 'Nooble',
+          },
+          {
+            type: 'textField',
+            title: 'Titulo',
+            data: '',
+          },
+          { type: 'textField', title: 'Start Date', data: '' },
+          {
+            type: 'textField',
+            title: 'Address',
+            data: '',
+          },
+        ],
+      ],
+    },
     {
       barName: 'projectsBar',
-      list: [],
+      list: [
+        [
+          {
+            id: uuidv4(),
+            type: 'textField',
+            title: 'Project Name',
+            data: 'Hello Goy',
+          },
+          {
+            type: 'textField',
+            title: 'Titulo',
+            data: '',
+          },
+          { type: 'textField', title: 'Start Date', data: '' },
+          {
+            type: 'textField',
+            title: 'Address',
+            data: '',
+          },
+        ],
+      ],
     },
   ]);
-  return (  
+  return (
     <>
       <div className="formContainer">
         <TitleBar></TitleBar>
@@ -59,7 +105,6 @@ function App() {
           if (bar.barName === 'workExperienceBar') {
             return (
               <WorkExperienceBar
-              debugger
                 data={draggableData}
                 setData={setDraggableData}
                 barName={bar.barName}
@@ -69,15 +114,24 @@ function App() {
           } else if (bar.barName === 'educationalExperienceBar') {
             return (
               <EducationalExperienceBar
+                data={draggableData}
+                setData={setDraggableData}
+                barName={bar.barName}
                 key={bar.barName}
               ></EducationalExperienceBar>
             );
           } else if (bar.barName === 'projectsBar') {
-            return <ProjectsBar key={bar.barName}></ProjectsBar>;
+            return (
+              <ProjectsBar
+                data={draggableData}
+                setData={setDraggableData}
+                barName={bar.barName}
+                key={bar.barName}
+              ></ProjectsBar>
+            );
           }
-            return null
+          return null;
         })}
-        
       </div>
       <div className="outputContainer"></div>
     </>

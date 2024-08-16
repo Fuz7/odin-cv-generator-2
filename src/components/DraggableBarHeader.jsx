@@ -2,7 +2,6 @@
 import draggableImageSrc from '@svgs/draggableImage.svg'
 import dropdownIconSrc from '@svgs/arrowImage.svg'
 import { useState } from 'react'
-import BarList from './BarList'
 import React from 'react'
 
 function DraggableBarHeader({imgSource,title,children}){

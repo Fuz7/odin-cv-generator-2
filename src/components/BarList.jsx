@@ -2,7 +2,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
 function BarList({ active, buttonName, barName, data, setData }) {
-  const workData = data.find((bar) => bar.barName === barName);
   return (
     <>
       <div

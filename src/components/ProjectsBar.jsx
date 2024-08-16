@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import projectsImageSource from '@svgs/projectsImage.svg';
 import DraggableBarHeader from './DraggableBarHeader';
-function ProjectsBar() {
-
+import BarList from './BarList';
+function ProjectsBar({barName,data,setData}) {
   return (
-    <DraggableBarHeader imgSource={projectsImageSource} title="Projects " ></DraggableBarHeader>
+    <DraggableBarHeader
+      imgSource={projectsImageSource}
+      title="Projects "
+    >
+    <BarList barName={barName} data={data} setData={setData} buttonName='+ Project' ></BarList>
+    </DraggableBarHeader>
   );
 }
 
