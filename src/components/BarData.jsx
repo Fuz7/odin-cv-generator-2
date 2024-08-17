@@ -21,16 +21,19 @@ function BarData({ active, dataIndex, barName, data, setData, setDataIndex }) {
         <div className="barData__inputContainer">
           {data.map((bar) => {
             if (bar.barName === barName) {
-              return bar.list.map((data, index) => {
-                if (dataIndex === index) {
-                  const uiq = data[0].id 
-                  return data.map((item,itemIndex) => {
+              return bar.list.map((groupOfInput, groupOfInputIndex) => {
+                if (dataIndex === groupOfInputIndex) {
+                  const uiq = groupOfInput[0].id 
+                  return groupOfInput.map((item,itemIndex) => {
                     return (<FormType
                       key={uiq + itemIndex}
                       type={item.type}
                       data={item.data}
+                      index={groupOfInputIndex}
+                      barName = {barName}
                       title={item.title}
                       state={data}
+                      draggable={true}
                       setState={setData}
                     />);
                   });

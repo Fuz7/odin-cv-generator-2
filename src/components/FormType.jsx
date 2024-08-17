@@ -1,14 +1,30 @@
 /* eslint-disable react/prop-types */
-function FormType({ type, data,title, state, setState }) {
+function FormType({ type, data,title, state, setState,draggable,index,barName }) {
   
   const setDataChange = (changedData) =>{
     const modifiedState = state.map((item) =>
       item.title === title?{...item, data:changedData} : item
     )
-    console.log(modifiedState)
     setState(modifiedState)
   }
 
+  const setDraggableDataChange = (changedData)=>{
+    const modifiedDraggableState = state.map((bar)=>{
+      if(bar.barName == barName){
+         bar.list = bar.list.map((groupOfInput,groupOfInputIndex)=>{
+          if(groupOfInputIndex === index){
+            return groupOfInput.map((input)=>
+              input.title === title?{...input,data:changedData}:input
+            )
+            
+          }
+          return groupOfInput
+        })
+      }
+      return bar
+    })
+    setState(modifiedDraggableState)
+  }
 
   const formInput = () => {
     switch (type) {
@@ -18,7 +34,9 @@ function FormType({ type, data,title, state, setState }) {
             className="inputContainer__textField"
             type="text"
             value={data}
-            onChange={(e) => setDataChange(e.target.value)}
+            onChange={(e) => {
+              draggable?setDraggableDataChange(e.target.value):setDataChange(e.target.value)
+            }}
           ></input>
         );
 

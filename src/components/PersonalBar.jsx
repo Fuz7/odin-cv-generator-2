@@ -3,13 +3,12 @@ import personalImageSrc from '@svgs/personalImage.svg';
 import dropdownIconSrc from '@svgs/arrowImage.svg';
 import { useState } from 'react';
 import FormType from './FormType';
-function PersonalBar({formState,setState}) {
+function PersonalBar({ formState, setState }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const toggleClick = () => {
     setIsClicked(!isClicked);
   };
-
 
   return (
     <>
@@ -42,9 +41,20 @@ function PersonalBar({formState,setState}) {
             }
           ></div>
           <div className="formBar__inputContainer">
-          {formState.map((data,index)=>{
-            return <FormType key={index} type={data.type} title={data.title} data={data.data}  state={formState} setState={setState}></FormType>
-          })}
+            {formState.map((data, index) => {
+              return (
+                <FormType
+                  key={index}
+                  draggable={false}
+                  type={data.type}
+                  title={data.title}
+                  data={data.data}
+                  index={index}
+                  state={formState}
+                  setState={setState}
+                ></FormType>
+              );
+            })}
           </div>
         </div>
       </div>
