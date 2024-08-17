@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function FormType({ type, data,title, state, setState,draggable,index,barName }) {
+function FormType({ type, data,title,placeHolder, state, setState,draggable,index,barName }) {
   
   const setDataChange = (changedData) =>{
     const modifiedState = state.map((item) =>
@@ -37,6 +37,7 @@ function FormType({ type, data,title, state, setState,draggable,index,barName })
             onChange={(e) => {
               draggable?setDraggableDataChange(e.target.value):setDataChange(e.target.value)
             }}
+            placeholder={placeHolder}
           ></input>
         );
 
@@ -47,6 +48,7 @@ function FormType({ type, data,title, state, setState,draggable,index,barName })
             id=""
             cols="44"
             rows="2"
+            placeholder={placeHolder}
             value={data}
             onChange={(e) => setDataChange(e.target.value)}
           ></textarea>

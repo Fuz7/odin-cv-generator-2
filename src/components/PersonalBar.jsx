@@ -48,6 +48,7 @@ function PersonalBar({ formState, setState }) {
                   draggable={false}
                   type={data.type}
                   title={data.title}
+                  placeHolder={data.placeHolder}
                   data={data.data}
                   index={index}
                   state={formState}

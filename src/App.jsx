@@ -9,13 +9,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [personalData, setPersonalData] = useState([
-    { type: 'textField', title: 'Full Name', data: '' },
-    { type: 'textField', title: 'Job Title', data: '' },
-    { type: 'textField', title: 'Email', data: '' },
-    { type: 'textField', title: 'Address', data: '' },
-    { type: 'textField', title: 'Phone Number', data: '' },
-    { type: 'textField', title: 'Website', data: '' },
-    { type: 'textArea', title: 'Summary', data: '' },
+    { type: 'textField', title: 'Full Name', data: '', placeHolder:'John Doe'},
+    { type: 'textField', title: 'Job Title', data: '',placeHolder:'Senior Software Engineer' },
+    { type: 'textField', title: 'Email', data: '',placeHolder:'johndoe@gmail.com' },
+    { type: 'textField', title: 'Address', data: '',placeHolder:'Tokyo, Japan' },
+    { type: 'textField', title: 'Phone Number', data: '',placeHolder:'937 200 020' },
+    { type: 'textField', title: 'Website', data: '',placeHolder:'www.linkedin.sample.com' },
+    { type: 'textArea', title: 'Summary', data: '', placeHolder:'As a Software Engineer i ...' },
   ]);
 
   const [draggableData, setDraggableData] = useState([
@@ -28,17 +28,20 @@ function App() {
             type: 'textField',
             title: 'Company Name',
             data: 'University Of',
+            placeHolder:'University Of Mindanao'
           },
           {
             type: 'textField',
             title: 'Job Title',
             data: '',
+            placeHolder:'Software Engineer'
           },
-          { type: 'textField', title: 'Start Date', data: '' },
+          { type: 'textField', title: 'Start Date', data: '',placeHolder:'Nooble' },
           {
             type: 'textField',
             title: 'Address',
             data: '',
+            placeHolder:'Panacan, Japan'
           },
         ],
       ],
@@ -52,17 +55,20 @@ function App() {
             type: 'textField',
             title: 'School Name',
             data: 'Nooble',
+            placeHolder:'Nooble'
           },
           {
             type: 'textField',
             title: 'Titulo',
             data: '',
+            placeHolder:'Tagiyag yuta'
           },
-          { type: 'textField', title: 'Start Date', data: '' },
+          { type: 'textField', title: 'Start Date', data: '',placeHolder:'Oct 2024' },
           {
             type: 'textField',
             title: 'Address',
             data: '',
+            placeHolder:'Japanacan'
           },
         ],
       ],
@@ -76,17 +82,20 @@ function App() {
             type: 'textField',
             title: 'Project Name',
             data: 'Hello Goy',
+            placeHolder:'Hello World'
           },
           {
             type: 'textField',
             title: 'Titulo',
             data: '',
+            placeHolder:'Titulo'
           },
-          { type: 'textField', title: 'Start Date', data: '' },
+          { type: 'textField', title: 'Start Date', data: '',placeHolder:'Sep 29' },
           {
             type: 'textField',
             title: 'Address',
             data: '',
+            placeHolder:'Panacan Japan'
           },
         ],
       ],

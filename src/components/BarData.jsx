@@ -30,6 +30,7 @@ function BarData({ active, dataIndex, barName, data, setData, setDataIndex }) {
                       type={item.type}
                       data={item.data}
                       index={groupOfInputIndex}
+                      placeHolder={item.placeHolder}
                       barName = {barName}
                       title={item.title}
                       state={data}
