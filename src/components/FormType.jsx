@@ -53,6 +53,10 @@ function FormType({ type, data,title,placeHolder, state, setState,draggable,inde
             onChange={(e) => setDataChange(e.target.value)}
           ></textarea>
         );
+      case 'checkBox':
+        return(
+          <div>sa</div>
+        )
     }
   };
 

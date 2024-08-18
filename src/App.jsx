@@ -43,6 +43,12 @@ function App() {
             data: '',
             placeHolder:'Panacan, Japan'
           },
+          {
+            type:'checkBox',
+            title:'Ongoing',
+            data:false,
+            placeHolder:''
+          }
         ],
       ],
     },
@@ -70,6 +76,12 @@ function App() {
             data: '',
             placeHolder:'Japanacan'
           },
+          {
+            type:'checkBox',
+            title:'Ongoing',
+            data:false,
+            placeHolder:''
+          }
         ],
       ],
     },
