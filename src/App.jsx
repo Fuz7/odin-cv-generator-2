@@ -48,6 +48,12 @@ function App() {
             title:'Ongoing',
             data:false,
             placeHolder:''
+          },
+          {
+            type:'textField',
+            title:'End Date',
+            data:'',
+            placeHolder:'October 21, 2023'
           }
         ],
       ],
@@ -65,9 +71,9 @@ function App() {
           },
           {
             type: 'textField',
-            title: 'Titulo',
+            title: 'Start Date',
             data: '',
-            placeHolder:'Tagiyag yuta'
+            placeHolder:'March 12, 2022 '
           },
           { type: 'textField', title: 'Start Date', data: '',placeHolder:'Oct 2024' },
           {
@@ -81,6 +87,12 @@ function App() {
             title:'Ongoing',
             data:false,
             placeHolder:''
+          },
+          {
+            type:'textField',
+            title:'End Date',
+            data:'',
+            placeHolder:'Oct 15, 2023'
           }
         ],
       ],

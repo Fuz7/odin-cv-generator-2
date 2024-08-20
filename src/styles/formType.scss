@@ -30,3 +30,49 @@
   min-width: clamp(toRem(300), 37.7vw, toRem(400));
 }
 
+
+.inputContainer__checkBox{
+  min-width: clamp(toRem(120),17.5vw,toRem(295));  
+  background-color: #f4f4f4;
+  border: rgba(0, 0, 0, 0.600) solid 1px;
+  border-radius: 4px;
+  min-height: toRem(28);
+  display: flex;
+  justify-content: flex-end;
+  padding-right: toRem(13);
+}
+
+.inputContainer__inputField.checkBox{
+  margin-top: toRem(7.5);
+}
+
+.inputContainer__inputField:has(.inputContainer__checkBox) > .inputContainer__label{
+  top: 0px;
+  background-color: transparent;
+}
+
+.checkBox__togglerContainer,
+.checkBox__togglerContainer--active{
+  min-width: toRem(32);
+  min-height: toRem(18);
+  background-color: black;
+  align-self: center;
+  border-radius: 20px;
+  position: relative; 
+  cursor: pointer;
+}
+
+.checkBox__togglerCircle{
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  min-width: toRem(16);
+  min-height: toRem(16);
+  background-color: #f4f4f4;
+  border-radius: toRem(24);
+  transition: left 0.3s ease;
+}
+
+.checkBox__togglerContainer--active > .checkBox__togglerCircle{
+  left: 15px;
+}

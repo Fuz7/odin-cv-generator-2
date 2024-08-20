@@ -42,6 +42,16 @@ function BarData({ active, dataIndex, barName, data, setData, setDataIndex }) {
               });
             }
           })}
+          <div className='barData__buttonContainer'>
+            <button className='barData__deleteButtonContainer'>
+              <span className='barData__deleteButtonImage'></span>
+              Delete
+            </button>
+            <div className='barData__deleteAndSaveContainer'>
+              <button className='barData__cancelButton'>Cancel</button>
+              <button className='barData__saveButton'>Save</button>
+            </div>
+          </div>
         </div>
       </div>
     </>

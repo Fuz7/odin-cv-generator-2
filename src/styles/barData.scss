@@ -34,7 +34,79 @@
   margin-top: toRem(19);
   padding-left: toRem(20);
   padding-right: toRem(16);
-  padding-bottom: toRem(20);
+  padding-bottom: toRem(12);
   font-family: 'Inter';
 
+}
+
+.barData__buttonContainer{
+  display: flex;
+  width: 100%;
+  height: toRem(40);
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+
+.barData__deleteButtonContainer{
+  min-height: toRem(33);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: toRem(11);
+  padding-right: toRem(18);
+  gap: toRem(12);
+  font-family: 'Inter';
+  font-size: toRem(15);
+  color: rgba(0, 0, 0, 0.766);
+  cursor: pointer;
+  background-color: white;
+  border: solid black 1px;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.barData__deleteButtonContainer:hover{
+  background-color: rgb(245, 245, 245);
+}
+
+.barData__deleteButtonImage{
+  width: toRem(24);
+  height: toRem(24);
+  background-image: url('@svgs/deleteImage.svg');
+  opacity: 0.8;
+}
+
+.barData__deleteAndSaveContainer{
+  display: flex;
+  gap: toRem(23);
+}
+
+.barData__cancelButton{
+  min-width: toRem(83);
+  min-height: toRem(29);
+  font-family: 'Inter';
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: toRem(15);
+  color: rgba(0, 0, 0, 0.664);
+  border: solid #262626 1px;
+  background-color: white;
+  cursor: pointer;
+}
+.barData__cancelButton:hover{
+  background-color: rgb(245, 245, 245);
+}
+
+.barData__saveButton{
+  min-width: toRem(66);
+  min-height: toRem(29);
+  font-family: 'Inter';
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: toRem(15);
+  border: solid 1px black;
+  color: white;
+  background-color: #4A85F6;
+  cursor: pointer;
 }

@@ -1,41 +1,88 @@
 /* eslint-disable react/prop-types */
-function FormType({ type, data,title,placeHolder, state, setState,draggable,index,barName }) {
-  
-  const setDataChange = (changedData) =>{
+function FormType({
+  type,
+  data,
+  title,
+  placeHolder,
+  state,
+  setState,
+  draggable,
+  index,
+  barName,
+}) {
+  const setDataChange = (changedData) => {
     const modifiedState = state.map((item) =>
-      item.title === title?{...item, data:changedData} : item
-    )
-    setState(modifiedState)
-  }
+      item.title === title ? { ...item, data: changedData } : item,
+    );
+    setState(modifiedState);
+  };
 
-  const setDraggableDataChange = (changedData)=>{
-    const modifiedDraggableState = state.map((bar)=>{
-      if(bar.barName == barName){
-         bar.list = bar.list.map((groupOfInput,groupOfInputIndex)=>{
-          if(groupOfInputIndex === index){
-            return groupOfInput.map((input)=>
-              input.title === title?{...input,data:changedData}:input
-            )
-            
+  const setDraggableDataChange = (changedData) => {
+    const modifiedDraggableState = state.map((bar) => {
+      if (bar.barName === barName) {
+        bar.list = bar.list.map((groupOfInput, groupOfInputIndex) => {
+          if (groupOfInputIndex === index) {
+            return groupOfInput.map((input) =>
+              input.title === title ? { ...input, data: changedData } : input,
+            );
           }
-          return groupOfInput
-        })
+          return groupOfInput;
+        });
       }
-      return bar
-    })
-    setState(modifiedDraggableState)
+      return bar;
+    });
+    setState(modifiedDraggableState);
+  };
+
+  const setCheckBoxActive = () => {
+    const changedData = !data;
+    const modifiedCheckBoxState = state.map((bar) => {
+      if (bar.barName === barName) {
+        bar.list = bar.list.map((groupOfInput, groupOfInputIndex) => {
+          if (groupOfInputIndex === index) {
+            return groupOfInput.map((input) =>
+              input.title === title ? { ...input, data: changedData } : input,
+            );
+          }
+          return groupOfInput;
+        });
+      }
+      return bar;
+    });
+    setState(modifiedCheckBoxState);
+  };
+
+  let ongoingData = false;
+  if (draggable === true) {
+    ongoingData = state.some((bar) => {
+      if (bar.barName === barName) {
+        return bar.list.some((groupOfInput, groupOfInputIndex) => {
+          if (groupOfInputIndex === index) {
+            return groupOfInput.some((input) => {
+              if (input.title === 'Ongoing' && input.data === true) {
+                return true;
+              }
+            });
+          }
+        });
+      }
+    });
   }
 
   const formInput = () => {
     switch (type) {
       case 'textField':
-        return (
+        return title === 'End Date' && ongoingData === true ? (
+          <input readOnly value="Present" type="text" className="inputContainer__textField"></input>
+        ) : (
           <input
             className="inputContainer__textField"
             type="text"
             value={data}
             onChange={(e) => {
-              draggable?setDraggableDataChange(e.target.value):setDataChange(e.target.value)
+              draggable
+                ? setDraggableDataChange(e.target.value)
+                : setDataChange(e.target.value);
             }}
             placeholder={placeHolder}
           ></input>
@@ -54,15 +101,28 @@ function FormType({ type, data,title,placeHolder, state, setState,draggable,inde
           ></textarea>
         );
       case 'checkBox':
-        return(
-          <div>sa</div>
-        )
+        return (
+          <div
+            onClick={() => setCheckBoxActive()}
+            className="inputContainer__checkBox"
+          >
+            <div
+              className={
+                data === true
+                  ? 'checkBox__togglerContainer--active'
+                  : 'checkBox__togglerContainer'
+              }
+            >
+              <div className="checkBox__togglerCircle"></div>
+            </div>
+          </div>
+        );
     }
   };
 
   return (
     <>
-      <div className="inputContainer__inputField">
+      <div className={type === 'checkBox'?'inputContainer__inputField checkBox':"inputContainer__inputField"}>
         <label className="inputContainer__label">{title}</label>
         {formInput()}
       </div>
