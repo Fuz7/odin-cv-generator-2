@@ -2,8 +2,40 @@ import FormType from './FormType';
 
 function BarData({ active, dataIndex, barName, data, setData, setDataIndex,currentData }) {
   
+
+  const deleteBarData = (e,deletedIndex)=>{ 
+    e.stopPropagation()
+    const deletedBarListData = data.map((bar) =>{
+      if(bar.barName === barName){
+        bar.list = bar.list.filter((item,index)=>
+          index !== deletedIndex
+        )
+        return bar
+      }
+      return bar
+    })
+    setDataIndex(null)
+    setData(deletedBarListData)
+  }
   
-  
+  const cancelInputtedData = (e)=>{
+    e.stopPropagation()
+    const canceledBarListData = data.map((bar)=>{
+      if(bar.barName === barName){
+        bar.list = bar.list.map((groupOfInput,groupOfInputIndex)=>{
+          if(groupOfInputIndex === dataIndex){
+            return currentData
+          }
+          return groupOfInput
+        })
+      }
+      return bar
+
+    })
+    setData(canceledBarListData)
+    setDataIndex(null)
+  }
+
   return (
     <>
       <div
@@ -48,18 +80,18 @@ function BarData({ active, dataIndex, barName, data, setData, setDataIndex,curre
             }
           })}
           <div className="barData__buttonContainer">
-            <button className="barData__deleteButtonContainer">
+            <button onClick={(e)=>deleteBarData(e,dataIndex)} className="barData__deleteButtonContainer">
               <span className="barData__deleteButtonImage"></span>
               Delete
             </button>
             <div className="barData__deleteAndSaveContainer">
               <button
-                onClick={() => setDataIndex(null)}
+                onClick={(e) => cancelInputtedData(e)}
                 className="barData__cancelButton"
               >
                 Cancel
               </button>
-              <button className="barData__saveButton">Save</button>
+              <button onClick={()=>setDataIndex(null)} className="barData__saveButton">Save</button>
             </div>
           </div>
         </div>
