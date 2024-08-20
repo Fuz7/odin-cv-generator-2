@@ -4,8 +4,31 @@ import { v4 as uuidv4 } from 'uuid';
 import BarData from './BarData';
 
 function BarList({ active, buttonName, barName, data, setData }) {
-  const [dataIndex, setDataIndex] = useState(0);
+  const [dataIndex, setDataIndex] = useState(null);
   const [savedData,setSavedData] = useState(null)
+
+  const selectActiveBarList =(event,index,inputs) =>{
+    event.stopPropagation()
+    setDataIndex(index)
+    const copyOfInputsData = [...inputs]
+    setSavedData(copyOfInputsData)
+  }
+
+  const deleteBarList = (e,deletedIndex)=>{ 
+    e.stopPropagation()
+    const deletedBarListData = data.map((bar) =>{
+      if(bar.barName === barName){
+        bar.list = bar.list.filter((item,index)=>
+          index !== deletedIndex
+        )
+        return bar
+      }
+      return bar
+    })
+    setData(deletedBarListData)
+  }
+
+
   function renderBarList() {
     return (
       <>
@@ -26,11 +49,12 @@ function BarList({ active, buttonName, barName, data, setData }) {
           ></div>
           {data.map((bar) => {
             if (bar.barName === barName && bar.list.length > 0) {
-              return bar.list.map((item) => {
+              return bar.list.map((item, index) => {
                 return (
                   <div
                     className="barList"
                     key={barName + 'barList' + item[0].id}
+                    onClick={(e)=>selectActiveBarList(e,index,item)}
                   >
                     <p
                       className="barList__title"
@@ -39,7 +63,7 @@ function BarList({ active, buttonName, barName, data, setData }) {
                       {item[0].data}
                     </p>
                     <button
-                      onClick={stopEventPropagation}
+                      onClick={(e)=>deleteBarList(e,index)}
                       className="barList__button "
                       key={barName + 'barList__button' + item[0].id}
                     ></button>
@@ -77,6 +101,7 @@ function BarList({ active, buttonName, barName, data, setData }) {
           barName={barName}
           data={data}
           setData={setData}
+          currentData={savedData}
           dataIndex={dataIndex}
           setDataIndex={setDataIndex}
         />
@@ -86,6 +111,7 @@ function BarList({ active, buttonName, barName, data, setData }) {
     </>
   );
 }
+
 
 function addBarList(e, barName, data, setData) {
   stopEventPropagation(e);
@@ -98,8 +124,8 @@ function addBarList(e, barName, data, setData) {
           [
             {
               id: uuidv4(),
-              type: 'Company Name',
-              title: '',
+              type: 'textField',
+              title: 'School',
               data: 'Mapua Malayan',
             },
           ],
