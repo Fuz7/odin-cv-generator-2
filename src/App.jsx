@@ -54,6 +54,12 @@ function App() {
             title:'End Date',
             data:'',
             placeHolder:'October 21, 2023'
+          },
+          {
+            type:'list',
+            title:'Bullet Points',
+            list:[{id:uuidv4(),data:'sa'},{id:uuidv4(),data:''},],
+            placeHolder:''
           }
         ],
       ],

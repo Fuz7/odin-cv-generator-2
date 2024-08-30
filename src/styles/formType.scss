@@ -76,3 +76,79 @@
 .checkBox__togglerContainer--active > .checkBox__togglerCircle{
   left: 15px;
 }
+
+.listContainer{
+  min-width: clamp(toRem(300),37.7vw,toRem(500));
+  min-height: toRem(65);
+  border-radius: 4px;
+  border: black 1px solid;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.addListButton{
+  width: toRem(80);
+  height: toRem(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-size: toRem(10);
+  font-weight: 600;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: toRem(18);
+  margin-bottom: toRem(10);
+  margin-top: toRem(13);
+  cursor: pointer;
+  align-self: center;
+}
+
+.addListButton:only-child{
+  margin-bottom: 22px;
+}
+
+.listItems{
+  display: flex;
+  flex-direction: column;
+  margin-top: toRem(20);
+}
+
+.list{
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+
+.list__draggableImage{
+  width: toRem(24);
+  height: toRem(24);
+  border-radius: 4px;
+  margin-left: toRem(11);
+  margin-right: toRem(9);
+  cursor: grab  ;
+}
+
+.list__draggableImage:hover{
+  background-color: #BDBDBD;
+  
+}
+
+.list__data{
+  width: toRem(400);
+  height: toRem(24);
+  border-radius: 4px;
+  border: solid black 1px;
+  padding-left: toRem(10);
+  margin-right: toRem(15);
+}
+
+.list__deleteButton{
+  width: toRem(24);
+  height: toRem(24);
+  background-image: url('@svgs/deleteImage.svg');
+  background-size: cover;
+  border: 0;
+  cursor: pointer;
+}

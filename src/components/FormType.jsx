@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import draggableImageSrc from '@svgs/draggableImage.svg'
+
 function FormType({
   type,
   data,
@@ -117,6 +119,19 @@ function FormType({
             </div>
           </div>
         );
+      case 'list':
+        return(
+          <div className="listContainer">
+             <button className="addListButton">+ Add Points</button>
+             <div className="listItems">
+              <div className="list">
+                <img className='list__draggableImage' src={draggableImageSrc} alt="draggableImage" />
+                <input className='list__data'></input>
+                <button className='list__deleteButton'></button>
+              </div>
+             </div>
+          </div>
+        )
     }
   };
 

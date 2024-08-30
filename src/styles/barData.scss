@@ -36,7 +36,7 @@
   padding-right: toRem(16);
   padding-bottom: toRem(12);
   font-family: 'Inter';
-
+  justify-content: space-evenly;
 }
 
 .barData__buttonContainer{
@@ -45,6 +45,7 @@
   height: toRem(40);
   justify-content: space-between;
   align-items: flex-end;
+  
 }
 
 

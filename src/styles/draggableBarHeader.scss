@@ -10,11 +10,18 @@
 .draggableImage{
   margin-right: toRem(27);
   user-select: none;
+  border-radius: toRem(8);
+  cursor: grab;
 }
+
+.draggableImage:Hover{
+  background-color: #BdBDBD;
+}
+
 
 .formBar__icon{
   margin-right: toRem(15);
-  user-select: none
+  user-select: none;
 }
 
 .formBar__title{
