@@ -7,6 +7,7 @@ function ProjectsBar({barName,data,setData}) {
     <DraggableBarHeader
       imgSource={projectsImageSource}
       title="Projects "
+      barName={barName}
     >
     <BarList barName={barName} data={data} setData={setData} buttonName='+ Project' ></BarList>
     </DraggableBarHeader>

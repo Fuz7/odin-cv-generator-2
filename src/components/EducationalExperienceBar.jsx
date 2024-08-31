@@ -8,6 +8,7 @@ function EducationalExperienceBar({ barName, data, setData }) {
     <DraggableBarHeader
       imgSource={educationalExperienceSource}
       title="Educational   Experience"
+      barName={barName}
     >
       <BarList
         barName={barName}
