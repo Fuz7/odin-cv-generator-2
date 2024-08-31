@@ -4,7 +4,7 @@ import PersonalBar from './components/PersonalBar';
 import WorkExperienceBar from './components/WorkExperienceBar';
 import EducationalExperienceBar from './components/EducationalExperienceBar';
 import ProjectsBar from './components/ProjectsBar';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { closestCorners, DndContext } from '@dnd-kit/core';
 import {
@@ -70,8 +70,8 @@ function App() {
             id: uuidv4(),
             type: 'textField',
             title: 'Company Name',
-            data: 'University Of',
-            placeHolder: 'University Of Mindanao',
+            data: '',
+            placeHolder: 'Nooble ',
           },
           {
             type: 'textField',
@@ -83,7 +83,7 @@ function App() {
             type: 'textField',
             title: 'Start Date',
             data: '',
-            placeHolder: 'Nooble',
+            placeHolder: 'Oct 2023',
           },
           {
             type: 'textField',
@@ -101,14 +101,13 @@ function App() {
             type: 'textField',
             title: 'End Date',
             data: '',
-            placeHolder: 'October 21, 2023',
+            placeHolder: 'December 2023',
           },
           {
             type: 'list',
             title: 'Bullet Points',
             listItems: [
-              { id: uuidv4(), data: 'sa' },
-              { id: uuidv4(), data: '' },
+              { id: uuidv4(),  data: '' },
             ],
             placeHolder: '',
           },
@@ -123,14 +122,14 @@ function App() {
             id: uuidv4(),
             type: 'textField',
             title: 'School Name',
-            data: 'Nooble',
-            placeHolder: 'Nooble',
+            data: '',
+            placeHolder: 'University Of Mindanao',
           },
           {
             type: 'textField',
-            title: 'Start Date',
+            title: 'Course',
             data: '',
-            placeHolder: 'March 12, 2022 ',
+            placeHolder: 'Bachelor Of Science In Fixing Printer ',
           },
           {
             type: 'textField',
@@ -154,13 +153,12 @@ function App() {
             type: 'textField',
             title: 'End Date',
             data: '',
-            placeHolder: 'Oct 15, 2023',
+            placeHolder: 'November 2023',
           },
           {
             type: 'list',
             title: 'Bullet Points',
             listItems: [
-              { id: uuidv4(), data: 'as' },
               { id: uuidv4(), data: '' },
             ],
             placeHolder: '',
@@ -176,26 +174,38 @@ function App() {
             id: uuidv4(),
             type: 'textField',
             title: 'Project Name',
-            data: 'Hello Goy',
-            placeHolder: 'Hello World',
+            data: '',
+            placeHolder: 'Todo List',
           },
           {
             type: 'textField',
-            title: 'Titulo',
+            title: 'Tech Stack',
             data: '',
-            placeHolder: 'Titulo',
+            placeHolder: 'HTML, CSS, Javascript',
           },
           {
             type: 'textField',
-            title: 'Start Date',
+            title: 'Source Code',
             data: '',
-            placeHolder: 'Sep 29',
+            placeHolder: 'github.com',
           },
           {
             type: 'textField',
-            title: 'Address',
+            title: 'Link',
             data: '',
-            placeHolder: 'Panacan Japan',
+            placeHolder: 'github.com/Fuz7',
+          },
+          {
+            type: 'textField',
+            title: 'Demo',
+            data: '',
+            placeHolder: 'Fuz7.github.io/cv-generator2',
+          },
+          {
+            type: 'textField',
+            title: 'Demo Link',
+            data: '',
+            placeHolder: 'Fuz7.github.io/cv-generator2/index.html',
           },
         ],
       ],
