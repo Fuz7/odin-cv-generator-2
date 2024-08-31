@@ -1,15 +1,20 @@
 /* eslint-disable react/prop-types */
 import draggableImageSrc from '@svgs/draggableImage.svg'
 import dropdownIconSrc from '@svgs/arrowImage.svg'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import React from 'react'
 import { useSortable } from '@dnd-kit/sortable'
+import { ClickContext } from './ClickContext'
 
 function DraggableBarHeader({imgSource,title,children,barName}){
-  const [isClicked,setIsClicked] = useState(false)
+  const {isClicked,setIsClicked} = useContext(ClickContext)
+
 
   const toggleClick = () =>{
-    setIsClicked(!isClicked)
+    setIsClicked(prevStates =>({
+      ...prevStates,
+      [barName]: !prevStates[barName],
+    }))
   }
   const {
     attributes, 
@@ -25,7 +30,7 @@ function DraggableBarHeader({imgSource,title,children,barName}){
   };
 
    const barListChild = React.Children.map(children, (child) =>
-    React.cloneElement(child, { active:isClicked })
+    React.cloneElement(child, { active:isClicked[barName] })
   );
   return<>
     <div style={style} onClick={toggleClick} className="formBar--draggable">
@@ -33,7 +38,7 @@ function DraggableBarHeader({imgSource,title,children,barName}){
       <img ref={setNodeRef} {...attributes} {...listeners} src={draggableImageSrc} alt="DraggableIcon" className='draggableImage' />
       <img src={imgSource} alt="Icon" className='formBar__icon' />
       <p className="formBar__title">{title}</p>
-      <img src={dropdownIconSrc} className={isClicked?'formBar__dropdownArrow--active':'formBar__dropdownArrow'} alt="dropdownArrowIcon"  />
+      <img src={dropdownIconSrc} className={isClicked[barName]?'formBar__dropdownArrow--active':'formBar__dropdownArrow'} alt="dropdownArrowIcon"  />
 
       </div>
       {barListChild}

@@ -4,7 +4,7 @@ import PersonalBar from './components/PersonalBar';
 import WorkExperienceBar from './components/WorkExperienceBar';
 import EducationalExperienceBar from './components/EducationalExperienceBar';
 import ProjectsBar from './components/ProjectsBar';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { closestCorners, DndContext } from '@dnd-kit/core';
 import {
@@ -12,6 +12,8 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
+import { ClickContext } from './components/ClickContext';
+
 
 function App() {
   const [personalData, setPersonalData] = useState([
@@ -199,8 +201,15 @@ function App() {
       ],
     },
   ]);
+  
+  const [isClicked,setIsClicked] = useState({
+    workExperienceBar: false,
+    educationalExperienceBar:false,
+    projectsBar:false,   
+  })
 
   const collapseElements = () => {
+    
     const activeDraggableBars = Array.from(
       document.getElementsByClassName('formBar__barDataContainer--active'),
     );
@@ -225,6 +234,15 @@ function App() {
       element.classList.remove('formBar__barListContainer--active');
       element.classList.add('formBar__barListContainer');
     });
+
+    setIsClicked(prevStates =>{
+      const newStates = {}
+      for (let key in prevStates){
+        newStates[key] = false
+      }
+      return newStates
+    })
+
   };
 
   const getBarNamePosition = (barName) =>
@@ -240,48 +258,50 @@ function App() {
 
   return (
     <>
+    <ClickContext.Provider value={{isClicked,setIsClicked}}>
+
       <div className="formContainer">
         <TitleBar></TitleBar>
         <CreatedByBar></CreatedByBar>
         <PersonalBar
           formState={personalData}
           setState={setPersonalData}
-        ></PersonalBar>
+          ></PersonalBar>
         <DndContext
           onDragStart={collapseElements}
           onDragEnd={(e) => handleSortOnBars(e)}
           collisionDetection={closestCorners}
-        >
+          >
           <SortableContext
             items={draggableData.map((bar) => bar.barName)}
             strategy={verticalListSortingStrategy}
-          >
+            >
             {draggableData.map((bar) => {
               if (bar.barName === 'workExperienceBar') {
                 return (
                   <WorkExperienceBar
-                    data={draggableData}
-                    setData={setDraggableData}
-                    barName={bar.barName}
-                    key={bar.barName}
+                  data={draggableData}
+                  setData={setDraggableData}
+                  barName={bar.barName}
+                  key={bar.barName}
                   ></WorkExperienceBar>
                 );
               } else if (bar.barName === 'educationalExperienceBar') {
                 return (
                   <EducationalExperienceBar
-                    data={draggableData}
-                    setData={setDraggableData}
-                    barName={bar.barName}
-                    key={bar.barName}
+                  data={draggableData}
+                  setData={setDraggableData}
+                  barName={bar.barName}
+                  key={bar.barName}
                   ></EducationalExperienceBar>
                 );
               } else if (bar.barName === 'projectsBar') {
                 return (
                   <ProjectsBar
-                    data={draggableData}
-                    setData={setDraggableData}
-                    barName={bar.barName}
-                    key={bar.barName}
+                  data={draggableData}
+                  setData={setDraggableData}
+                  barName={bar.barName}
+                  key={bar.barName}
                   ></ProjectsBar>
                 );
               }
@@ -290,6 +310,7 @@ function App() {
           </SortableContext>
         </DndContext>
       </div>
+        </ClickContext.Provider>
       <div className="outputContainer"></div>
     </>
   );
