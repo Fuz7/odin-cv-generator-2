@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
-import draggableImageSrc from '@svgs/draggableImage.svg';
+import { closestCorners, DndContext } from '@dnd-kit/core';
+import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import SortableBarPoints from './SortableBarPoints';
+import { v4 as uuidv4 } from 'uuid';
 
 function FormType({
   type,
@@ -36,6 +39,7 @@ function FormType({
     setState(modifiedDraggableState);
   };
 
+
   const setCheckBoxActive = () => {
     const changedData = !data;
     const modifiedCheckBoxState = state.map((bar) => {
@@ -54,24 +58,25 @@ function FormType({
     setState(modifiedCheckBoxState);
   };
 
-  const setBarListData = (changedData,id) =>{
-    const modifiedListData = state.map((bar)=>{
-      if(bar.barName !== barName) return bar
+  const setBarPointsData = (changedData, id) => {
+    const modifiedListData = state.map((bar) => {
+      if (bar.barName !== barName) return bar;
 
-      const updatedList = bar.list.map((groupOfInput,groupOfInputIndex)=>{
-        if (groupOfInputIndex !== index) return groupOfInput
+      const updatedList = bar.list.map((groupOfInput, groupOfInputIndex) => {
+        if (groupOfInputIndex !== index) return groupOfInput;
 
-        return groupOfInput.map((input)=>{
-          if(input.title !== title) return input
-          input.listItems = input.listItems.map((item)=>
-            item.id === id?{...item,data: changedData}:item)
-          return input
-        })
-      })
-      return {...bar,list:updatedList}
-    })
-    setState(modifiedListData)
-  }
+        return groupOfInput.map((input) => {
+          if (input.title !== title) return input;
+          input.listItems = input.listItems.map((item) =>
+            item.id === id ? { ...item, data: changedData } : item,
+          );
+          return input;
+        });
+      });
+      return { ...bar, list: updatedList };
+    });
+    setState(modifiedListData);
+  };
   let ongoingData = false;
   if (draggable === true) {
     ongoingData = state.some((bar) => {
@@ -98,12 +103,77 @@ function FormType({
     if (!groupOfInput) return null;
 
     const input = groupOfInput.find((input) => input.title === title);
-    return (input.listItems) || null;
+    return input.listItems || null;
   };
+
+  const setBarPointsItemsOrder = (newOrderList) => {
+
+    const modifiedListData = state.map((bar) => {
+      if (bar.barName !== barName) return bar;
+
+      const updatedList = bar.list.map((groupOfInput, groupOfInputIndex) => {
+        if (groupOfInputIndex !== index) return groupOfInput;
+
+        return groupOfInput.map((input) => {
+          if (input.title !== title) return input;
+          input.listItems = newOrderList
+          return input;
+        });
+      });
+      return { ...bar, list: updatedList };
+    });
+    setState(modifiedListData)
+  }
   let barList;
   if (type === 'list') {
     barList = getBarList();
   }
+  const getListPos = id => barList.findIndex(item =>item.id===id)
+  const handleListDrag = (event)=>{
+    const {active,over} = event
+    if(active.id === over.id) return
+    
+    const originalPos = getListPos(active.id)
+    const newPos = getListPos(over.id)
+    const newOrderList = arrayMove(barList,originalPos,newPos)
+
+    setBarPointsItemsOrder(newOrderList)
+  }
+  const deleteBarPoint = (deletedId) =>{
+    const modifiedPointsData = state.map((bar)=>{
+      if (bar.barName !== barName) return bar
+
+      const updatedPoints = bar.list.map((groupOfInput,groupOfInputIndex)=>{
+        if (groupOfInputIndex !== index) return groupOfInput
+        return groupOfInput.map((input)=>{
+          if(input.title !== title) return input
+          input.listItems = input.listItems.filter(item=>item.id !== deletedId)
+          return input
+        })
+      })
+      return{...bar,list:updatedPoints}
+    }) 
+    setState(modifiedPointsData)
+  }
+
+  const addBarPoint = ()=>{
+    const modifiedPointsData = state.map((bar)=>{
+      if (bar.barName !== barName) return bar
+
+      const updatedPoints = bar.list.map((groupOfInput,groupOfInputIndex)=>{
+        if (groupOfInputIndex !== index) return groupOfInput
+        return groupOfInput.map((input)=>{
+          if(input.title !== title) return input
+          input.listItems.push({id:uuidv4(),data:''})
+          return input
+        })
+      })
+      return{...bar,list:updatedPoints}
+    }) 
+    setState(modifiedPointsData)
+
+  }
+
   const formInput = () => {
     switch (type) {
       case 'textField':
@@ -160,36 +230,20 @@ function FormType({
       case 'list':
         return (
           <div className="listContainer">
-            <button className="addListButton">+ Add Points</button>
+            <button onClick={() => addBarPoint()} className="addListButton">+ Add Points</button>
             {barList.length > 0 ? (
-              <div className="listItems">
-                {barList.map((listItem) => {
-                  return (
-                    <div key={listItem.id} className="list">
-                      <img
-                        className="list__draggableImage"
-                        src={draggableImageSrc}
-                        alt="draggableImage"
-                      />
-                      <input
-                        onChange={(e)=>setBarListData(e.target.value,listItem.id)}
-                        type="text"
-                        className="list__data"
-                        value={listItem.data}
-                      />
-                      <button className="list__deleteButton"></button>
-                    </div>
-                  );
-                })}
-              </div>
+              <DndContext onDragEnd={(e)=>handleListDrag(e)} collisionDetection={closestCorners}>
+                <SortableContext strategy={verticalListSortingStrategy} items={barList.map(item =>item.id)}>
+                <div className="listItems">
+                  {barList.map((listItem) => {
+                    return (
+                      <SortableBarPoints key={listItem.id} deleteBarPoint={deleteBarPoint} listItem={listItem} setBarPointsData={setBarPointsData} />
+                    );
+                  })}
+                </div>
+                  </SortableContext>
+              </DndContext>
             ) : null}
-            {/* <div className="listItems">
-              <div className="list">
-                <img className='list__draggableImage' src={draggableImageSrc} alt="draggableImage" />
-                <input className='list__data'></input>
-                <button className='list__deleteButton'></button>
-              </div>
-             </div> */}
           </div>
         );
     }
