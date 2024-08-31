@@ -58,7 +58,7 @@ function App() {
           {
             type:'list',
             title:'Bullet Points',
-            list:[{id:uuidv4(),data:'sa'},{id:uuidv4(),data:''},],
+            listItems:[{id:uuidv4(),data:'sa'},{id:uuidv4(),data:''},],
             placeHolder:''
           }
         ],
@@ -99,6 +99,12 @@ function App() {
             title:'End Date',
             data:'',
             placeHolder:'Oct 15, 2023'
+          },
+          {
+            type:'list',
+            title:'Bullet Points',
+            listItems:[{id:uuidv4(),data:'as'},{id:uuidv4(),data:''},],
+            placeHolder:''
           }
         ],
       ],
