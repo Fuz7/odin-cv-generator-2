@@ -13,6 +13,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { ClickContext } from './components/ClickContext';
+import CVPaper from './components/CVPaper';
 
 
 function App() {
@@ -265,7 +266,7 @@ function App() {
     const newOrderBars = arrayMove(draggableData,originalPos,newPos)
     setDraggableData(newOrderBars)
   };
-
+  console.log(personalData)
   return (
     <>
     <ClickContext.Provider value={{isClicked,setIsClicked}}>
@@ -322,7 +323,7 @@ function App() {
       </div>
         </ClickContext.Provider>
       <div className="outputContainer">
-        <div className='CVPaper'></div>
+          <CVPaper draggableData={draggableData} personalData={personalData}></CVPaper>
       </div>
     </>
   );
