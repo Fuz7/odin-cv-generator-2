@@ -24,13 +24,19 @@ function BarData({ active, dataIndex, barName, data, setData, setDataIndex,curre
       if(bar.barName === barName){
         bar.list = bar.list.map((groupOfInput,groupOfInputIndex)=>{
           if(groupOfInputIndex === dataIndex){
-            return currentData
+            return groupOfInput.map((input,index)=>{
+              if(index < 6)return currentData[0][index]
+              if(index === 6) {
+                input.listItems=currentData[1]
+                return input
+              }
+            })
           }
           return groupOfInput
         })
       }
       return bar
-
+      
     })
     setData(canceledBarListData)
     setDataIndex(null)

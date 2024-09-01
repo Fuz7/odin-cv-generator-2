@@ -10,6 +10,7 @@
 .personalInfoContainer{
   display: flex;
   gap: toRem(140);
+  margin-bottom: toRem(30);
 }
 .personalInfo__leftSide{
   display: flex;
@@ -40,7 +41,6 @@
   color: black;
   font-size: 11px;
   font-family: 'Inter';
-  margin-bottom: toRem(35);
 }
 .personalInfo__rightSide{
   display: flex;
@@ -62,7 +62,71 @@
 
 .personalInfo__rightSide a,
 .personalInfo__rightSide p{
-  max-width: toRem(162);
+  max-width: toRem(170);
   word-wrap: break-word;
   text-wrap: wrap;
+}
+
+.workExperienceInfoContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.draggableTitle{
+  font-size: toRem(24);
+  font-weight: 500;
+  font-family: 'Inter';
+  margin-bottom: 2px;
+}
+
+.draggableLineSeparator{
+  width: toRem(600);
+  height: 2px;
+  background-color: #949494;
+  margin-bottom: 10px;
+}
+
+.workExperience__listContainer{
+  max-width: toRem(600);
+  display: flex;
+  flex-direction: column;
+}
+
+.workExperience__titleAndDateContainer,
+.workExperience__jobTitleAndAddressContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workExperience__title{
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: toRem(20);
+}
+
+.workExperience__date{
+  font-size: 12px;
+  font-family: 'Inter';
+  font-weight: 500;
+}
+
+.workExperience__jobTitle{
+  margin-top: 2px;
+  font-family: 'Inconsolata';
+  font-size: 14px;
+}
+
+.workExperience__address{
+  font-family: 'Inconsolata';
+  font-size: 12px;
+}
+
+.workExperience__bulletPoints{
+  max-width: toRem(600);
+  padding-left: 17px;
+  font-family: 'Inter';
+  font-size: 14px;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }

@@ -9,9 +9,10 @@ function BarList({ active, buttonName, barName, data, setData }) {
 
   const selectActiveBarList = (event, index, inputs) => {
     event.stopPropagation();
+    const copyOfInputsData = [...inputs,];
+    const listItems = copyOfInputsData[6].listItems
     setDataIndex(index);
-    const copyOfInputsData = [...inputs];
-    setSavedData(copyOfInputsData);
+    setSavedData([copyOfInputsData,listItems]);
   };
 
   const deleteBarList = (e, deletedIndex) => {
@@ -258,10 +259,12 @@ function addBarList(e,barName, data, setData,setDataIndex,setSavedData) {
     });
   const bar = data.find(bar => bar.barName === barName)
   const latestList = bar.list[(bar.list.length - 1)]
+  
   const latestDataIndex = (updatedData.filter((bar)=>(bar.barName ===barName)))
   .map((bar) => bar.list.length - 1)[0]
+  const latestListItem = latestList[6].listItems
   setData(updatedData)
-  setSavedData(latestList)
+  setSavedData([latestList,latestListItem])
   setDataIndex(latestDataIndex)
 }
 

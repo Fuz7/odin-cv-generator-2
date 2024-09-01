@@ -164,8 +164,8 @@ function FormType({
         if (groupOfInputIndex !== index) return groupOfInput
         return groupOfInput.map((input)=>{
           if(input.title !== title) return input
-          input.listItems.push({id:uuidv4(),data:''})
-          return input
+          const newList = [...input.listItems,{id:uuidv4(),data:''}]
+          return {...input,listItems:newList}
         })
       })
       return{...bar,list:updatedPoints}

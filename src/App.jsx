@@ -266,7 +266,7 @@ function App() {
     const newOrderBars = arrayMove(draggableData,originalPos,newPos)
     setDraggableData(newOrderBars)
   };
-  console.log(personalData)
+  console.log(draggableData)
   return (
     <>
     <ClickContext.Provider value={{isClicked,setIsClicked}}>
