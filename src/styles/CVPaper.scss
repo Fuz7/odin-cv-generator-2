@@ -6,6 +6,11 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba($color: #000000, $alpha: 0.25);
   padding: toRem(45) toRem(26) toRem(40) toRem(33);
+  overflow-y: scroll;
+}
+
+.CVPaper::-webkit-scrollbar{
+  display: none;
 }
 .personalInfoContainer{
   display: flex;
