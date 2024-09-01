@@ -272,7 +272,7 @@ function App() {
     <ClickContext.Provider value={{isClicked,setIsClicked}}>
 
       <div className="formContainer">
-        <TitleBar></TitleBar>
+        <TitleBar setPersonalData={setPersonalData} setDraggableData={setDraggableData}></TitleBar>
         <CreatedByBar></CreatedByBar>
         <PersonalBar
           formState={personalData}
