@@ -71,13 +71,13 @@ function TitleBar({setPersonalData,setDraggableData}){
             type: 'textField',
             title: 'Start Date',
             data: 'October 2023',
-            placeHolder: 'Oct 2023',
+            placeHolder: 'October 2023',
           },
           {
             type: 'textField',
             title: 'Address',
             data: 'Melbourne, Australia',
-            placeHolder: 'Panacan, Japan',
+            placeHolder: 'Melbourne, Australia',
           },
           {
             type: 'checkBox',
@@ -120,13 +120,13 @@ function TitleBar({setPersonalData,setDraggableData}){
             type: 'textField',
             title: 'Start Date',
             data: 'January 2021',
-            placeHolder: 'Oct 2023',
+            placeHolder: 'October 2023',
           },
           {
             type: 'textField',
             title: 'Address',
             data: 'Melbourne, Australia',
-            placeHolder: 'Panacan, Japan',
+            placeHolder: 'Melbourne, Australia',
           },
           {
             type: 'checkBox',
@@ -146,7 +146,7 @@ function TitleBar({setPersonalData,setDraggableData}){
             listItems: [
               { id: uuidv4(),  data: 'Scheduled Meetups' },
               { id: uuidv4(),  data: 'Fix Their Search Engine' },
-              { id: uuidv4(),  data: 'Helped With Improving the User Experience' },
+              { id: uuidv4(),  data: 'Helped With Improving the User' },
             ],
             placeHolder: '',
           },
@@ -174,13 +174,13 @@ function TitleBar({setPersonalData,setDraggableData}){
             type: 'textField',
             title: 'Start Date',
             data: 'August 2023',
-            placeHolder: 'Oct 2024',
+            placeHolder: 'October 2024',
           },
           {
             type: 'textField',
             title: 'Address',
-            data: 'Davao, Phillippines',
-            placeHolder: 'Japanacan',
+            data: 'Davao, Philippines',
+            placeHolder: 'Davao, Philippines',
           },
           {
             type: 'checkBox',

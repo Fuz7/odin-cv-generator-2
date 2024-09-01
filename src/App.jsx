@@ -66,157 +66,16 @@ function App() {
     {
       barName: 'workExperienceBar',
       list: [
-        [
-          {
-            id: uuidv4(),
-            type: 'textField',
-            title: 'Company Name',
-            data: '',
-            placeHolder: 'Nooble ',
-          },
-          {
-            type: 'textField',
-            title: 'Job Title',
-            data: '',
-            placeHolder: 'Software Engineer',
-          },
-          {
-            type: 'textField',
-            title: 'Start Date',
-            data: '',
-            placeHolder: 'Oct 2023',
-          },
-          {
-            type: 'textField',
-            title: 'Address',
-            data: '',
-            placeHolder: 'Panacan, Japan',
-          },
-          {
-            type: 'checkBox',
-            title: 'Ongoing',
-            data: false,
-            placeHolder: '',
-          },
-          {
-            type: 'textField',
-            title: 'End Date',
-            data: '',
-            placeHolder: 'December 2023',
-          },
-          {
-            type: 'list',
-            title: 'Bullet Points',
-            listItems: [
-              { id: uuidv4(),  data: '' },
-            ],
-            placeHolder: '',
-          },
-        ],
       ],
     },
     {
       barName: 'educationalExperienceBar',
       list: [
-        [
-          {
-            id: uuidv4(),
-            type: 'textField',
-            title: 'School Name',
-            data: '',
-            placeHolder: 'University Of Mindanao',
-          },
-          {
-            type: 'textField',
-            title: 'Course',
-            data: '',
-            placeHolder: 'Bachelor Of Science In Fixing Printer ',
-          },
-          {
-            type: 'textField',
-            title: 'Start Date',
-            data: '',
-            placeHolder: 'Oct 2024',
-          },
-          {
-            type: 'textField',
-            title: 'Address',
-            data: '',
-            placeHolder: 'Japanacan',
-          },
-          {
-            type: 'checkBox',
-            title: 'Ongoing',
-            data: false,
-            placeHolder: '',
-          },
-          {
-            type: 'textField',
-            title: 'End Date',
-            data: '',
-            placeHolder: 'November 2023',
-          },
-          {
-            type: 'list',
-            title: 'Bullet Points',
-            listItems: [
-              { id: uuidv4(), data: '' },
-            ],
-            placeHolder: '',
-          },
-        ],
       ],
     },
     {
       barName: 'projectsBar',
       list: [
-        [
-          {
-            id: uuidv4(),
-            type: 'textField',
-            title: 'Project Name',
-            data: '',
-            placeHolder: 'Todo List',
-          },
-          {
-            type: 'textField',
-            title: 'Tech Stack',
-            data: '',
-            placeHolder: 'HTML, CSS, Javascript',
-          },
-          {
-            type: 'textField',
-            title: 'Source Code',
-            data: '',
-            placeHolder: 'github.com',
-          },
-          {
-            type: 'textField',
-            title: 'Link',
-            data: '',
-            placeHolder: 'github.com/Fuz7',
-          },
-          {
-            type: 'textField',
-            title: 'Demo',
-            data: '',
-            placeHolder: 'Fuz7.github.io/cv-generator2',
-          },
-          {
-            type: 'textField',
-            title: 'Demo Link',
-            data: '',
-            placeHolder: 'Fuz7.github.io/cv-generator2/index.html',
-          },
-          {
-            type: 'list',
-            title: 'Bullet Points',
-            listItems: [
-              { id: uuidv4(), data: '' },
-            ],
-            placeHolder: '',
-          },
-        ],
       ],
     },
   ]);

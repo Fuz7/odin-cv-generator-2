@@ -162,6 +162,7 @@ function EducationalExperienceInfo({ data }) {
 }
 
 function ProjectsInfo({ data }) {
+  if (data === undefined || data.length === 0) return;
   const checkIfBothPresent = (projectName, techStack) => {
     if (projectName.length > 0 && techStack.length > 0)
       return ' - ' + techStack;

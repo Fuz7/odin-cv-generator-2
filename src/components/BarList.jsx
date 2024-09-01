@@ -134,13 +134,13 @@ function addBarList(e,barName, data, setData,setDataIndex,setSavedData) {
               type: 'textField',
               title: 'Start Date',
               data: '',
-              placeHolder: 'Oct 2023',
+              placeHolder: 'October 2023',
             },
             {
               type: 'textField',
               title: 'Address',
               data: '',
-              placeHolder: 'Panacan, Japan',
+              placeHolder: 'Melbourne, Australia',
             },
             {
               type: 'checkBox',
@@ -157,7 +157,7 @@ function addBarList(e,barName, data, setData,setDataIndex,setSavedData) {
             {
               type: 'list',
               title: 'Bullet Points',
-              listItems: [{ id: uuidv4(), data: '' }],
+              listItems: [],
               placeHolder: '',
             },
           ],
@@ -183,13 +183,13 @@ function addBarList(e,barName, data, setData,setDataIndex,setSavedData) {
               type: 'textField',
               title: 'Start Date',
               data: '',
-              placeHolder: 'Oct 2024',
+              placeHolder: 'October 2024',
             },
             {
               type: 'textField',
               title: 'Address',
               data: '',
-              placeHolder: 'Japanacan',
+              placeHolder: 'Davao, Philippines',
             },
             {
               type: 'checkBox',
@@ -206,7 +206,7 @@ function addBarList(e,barName, data, setData,setDataIndex,setSavedData) {
             {
               type: 'list',
               title: 'Bullet Points',
-              listItems: [{ id: uuidv4(), data: '' }],
+              listItems: [],
               placeHolder: '',
             },
           ],
@@ -252,6 +252,13 @@ function addBarList(e,barName, data, setData,setDataIndex,setSavedData) {
               data: '',
               placeHolder: 'Fuz7.github.io/cv-generator2/index.html',
             },
+          {
+            type: 'list',
+            title: 'Bullet Points',
+            listItems: [
+            ],
+            placeHolder: '',
+          },
           ],
         ];
       }
