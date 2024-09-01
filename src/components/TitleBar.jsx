@@ -102,6 +102,55 @@ function TitleBar({setPersonalData,setDraggableData}){
             placeHolder: '',
           },
         ],
+        [
+          {
+            id: uuidv4(),
+            type: 'textField',
+            title: 'Company Name',
+            data: 'Nahoo',
+            placeHolder: 'Nooble ',
+          },
+          {
+            type: 'textField',
+            title: 'Job Title',
+            data: 'Junior Software Engineer',
+            placeHolder: 'Software Engineer',
+          },
+          {
+            type: 'textField',
+            title: 'Start Date',
+            data: 'January 2021',
+            placeHolder: 'Oct 2023',
+          },
+          {
+            type: 'textField',
+            title: 'Address',
+            data: 'Melbourne, Australia',
+            placeHolder: 'Panacan, Japan',
+          },
+          {
+            type: 'checkBox',
+            title: 'Ongoing',
+            data: false,
+            placeHolder: '',
+          },
+          {
+            type: 'textField',
+            title: 'End Date',
+            data: 'July 2023',
+            placeHolder: 'December 2023',
+          },
+          {
+            type: 'list',
+            title: 'Bullet Points',
+            listItems: [
+              { id: uuidv4(),  data: 'Scheduled Meetups' },
+              { id: uuidv4(),  data: 'Fix Their Search Engine' },
+              { id: uuidv4(),  data: 'Helped With Improving the User Experience' },
+            ],
+            placeHolder: '',
+          },
+        ],
       ],
     },
     {
