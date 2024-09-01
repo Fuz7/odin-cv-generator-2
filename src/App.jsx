@@ -321,7 +321,9 @@ function App() {
         </DndContext>
       </div>
         </ClickContext.Provider>
-      <div className="outputContainer"></div>
+      <div className="outputContainer">
+        <div className='CVPaper'></div>
+      </div>
     </>
   );
 }

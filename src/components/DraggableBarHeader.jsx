@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import draggableImageSrc from '@svgs/draggableImage.svg'
 import dropdownIconSrc from '@svgs/arrowImage.svg'
-import { useContext, useState } from 'react'
+import { useContext,  } from 'react'
 import React from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { ClickContext } from './ClickContext'
