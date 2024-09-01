@@ -67,7 +67,9 @@
   text-wrap: wrap;
 }
 
-.workExperienceInfoContainer{
+.workExperienceInfoContainer,
+.educationalExperienceContainer,
+.projectsInfo__ListContainer{
   display: flex;
   flex-direction: column;
 }
@@ -86,50 +88,96 @@
   margin-bottom: 10px;
 }
 
-.workExperience__listContainer{
+.workExperience__listContainer,
+.educationalExperience__listContainer{
   max-width: toRem(600);
   display: flex;
   flex-direction: column;
+  margin-bottom: toRem(30);
 }
 
 .workExperience__titleAndDateContainer,
-.workExperience__jobTitleAndAddressContainer{
+.workExperience__jobTitleAndAddressContainer,
+.educationalExperience__schoolAndDateContainer,
+.educationalExperience__courseTitleAndAddressContainer
+{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.workExperience__title{
+.workExperience__title,
+.educationalExperience__school{
   font-family: 'Inter';
   font-weight: 500;
   font-size: toRem(20);
 }
 
-.workExperience__date{
+.workExperience__date,
+.educationalExperience__date{
   font-size: 12px;
   font-family: 'Inter';
   font-weight: 500;
 }
 
-.workExperience__jobTitle{
+.workExperience__jobTitle,
+.educationalExperience__courseTitle{
   margin-top: 2px;
   font-family: 'Inconsolata';
   font-size: 14px;
 }
 
-.workExperience__address{
+.workExperience__address,
+.educationalExperience__address{
   font-family: 'Inconsolata';
   font-size: 12px;
 }
 
-.workExperience__bulletPoints{
+.workExperience__bulletPoints,
+.educationalExperience__bulletPoints,
+.projectsInfo__bulletPoints{
   max-width: toRem(600);
   padding-left: 17px;
   font-family: 'Inter';
   font-size: 14px;
   margin-top: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
-.workExperience__bulletPoints > li{
+.workExperience__bulletPoints > li,
+.educationalExperience__bulletPoints > li,
+.projectsInfo__bulletPoints > li{
   margin-top: 6px;
+}
+
+.projectsInfo__projectNameAndTechStackContainer{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.projectsInfo__projectName{
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Inter';
+  color: black;
+}
+
+.projectsInfo__techStack{
+  font-size: 14px;
+  font-family: 'Inconsolata';
+  color: black;
+
+}
+
+.projectsInfo__sourceAndDemoContainer{
+  display: flex;
+  gap: 6px;
+}
+
+
+.projectsInfo__sourceAndDemoContainer a,
+.projectsInfo__sourceAndDemoContainer p{
+  
+  font-family: 'Inika';
+  font-size: 14px;
 }

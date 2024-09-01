@@ -197,6 +197,16 @@ function TitleBar({setPersonalData,setDraggableData}){
             data: 'Fuz7.github.io/cv-generator2/index.html',
             placeHolder: 'Fuz7.github.io/cv-generator2/index.html',
           },
+          {
+            type: 'list',
+            title: 'Bullet Points',
+            listItems: [
+              { id: uuidv4(), data: 'Implemented To Do List With Vanilla Javascript' },
+              { id: uuidv4(), data: 'No Skill Issue Involved' },
+              { id: uuidv4(), data: 'Pushed It To Github' },
+            ],
+            placeHolder: '',
+          },
         ],
       ],
     },

@@ -208,6 +208,14 @@ function App() {
             data: '',
             placeHolder: 'Fuz7.github.io/cv-generator2/index.html',
           },
+          {
+            type: 'list',
+            title: 'Bullet Points',
+            listItems: [
+              { id: uuidv4(), data: '' },
+            ],
+            placeHolder: '',
+          },
         ],
       ],
     },
